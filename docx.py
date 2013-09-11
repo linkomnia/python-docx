@@ -420,7 +420,7 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0,
 
 
 def picture(
-        relationshiplist, picname, picdescription, pixelwidth=None,
+        relationshiplist, filepath, picname, picdescription, pixelwidth=None,
         pixelheight=None, nochangeaspect=True, nochangearrowheads=True):
     """
     Take a relationshiplist, picture file name, and return a paragraph
@@ -433,7 +433,7 @@ def picture(
     media_dir = join(template_dir, 'word', 'media')
     if not os.path.isdir(media_dir):
         os.mkdir(media_dir)
-    shutil.copyfile(picname, join(media_dir, picname))
+    shutil.copyfile(join(filepath, picname), join(media_dir, picname))
 
     # Check if the user has specified a size
     if not pixelwidth or not pixelheight:
